@@ -11,7 +11,7 @@ import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
 import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
 
-const url = 'https://new.vyatsu.ru/';
+const url = 'http://localhost:8080/admission/';
 
 export default Vue.extend({
   name: 'App',
