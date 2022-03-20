@@ -1,9 +1,9 @@
 <template>
   <div class="form-div">
-    <img class="logo_big" src="./assets/gunter.png" />
+    <img class="logo_big" src="../assets/gunter.png" />
     <form class="form">
-      <img class="logo" src="./assets/gunter.png" />
-      <h3 class="form_title">Вход</h3>
+      <img class="logo" src="../assets/gunter.png" />
+      <h3 class="form_title">Регистрация</h3>
       <div >
         <div class="mobile-login">
           <input type="text" class="form_input" placeholder="Логин" />
@@ -11,20 +11,23 @@
         <div class="checkbox mobile-login" >
           <input type="password" class="form_input" placeholder="Пароль" />
         </div>
+        <div class="checkbox mobile-login" >
+          <input type="password" class="form_input" placeholder="Повторите пароль" />
+        </div>
         <div class="desktop-login">
           <span>Логин:</span>
-          <input id="log" type="text" class="form_input" />
+          <input type="text" class="form_input" id="login" />
         </div>
         <div class="checkbox desktop-login" >
           <span>Пароль:</span>
-          <input id="pass" type="password" class="form_input" />
+          <input type="password" class="form_input" id="pass1" />
         </div>
-        <div class="checkbox">
-          <input type="checkbox" id="input" />
-          <label class="checkbox-text" for="input">Запомнить данные пользователя</label>
-        </div >
+        <div class="checkbox desktop-login" >
+          <span>Повторите пароль:</span>
+          <input type="password" class="form_input" id="pass2" />
+        </div>
         <div >
-          <button type="button" class="form_btn" v-on:click="signIn">Войти</button>
+          <button type="button" v-on:click="signOn" class="form_btn">Зарегистрироваться</button>
         </div>
       </div>
     </form>
@@ -34,41 +37,53 @@
 <script lang="ts">
 import axios from 'axios';
 
-export default {
+export default ({
   methods: {
-    signIn() {
-      const login :HTMLInputElement = document.getElementById('log') as HTMLInputElement;
-      const pass :HTMLInputElement = document.getElementById('pass') as HTMLInputElement;
-
+    signOn() {
+      const log :HTMLInputElement = document.getElementById('login') as HTMLInputElement;
+      const pass1 :HTMLInputElement = document.getElementById('pass1') as HTMLInputElement;
+      const pass2 :HTMLInputElement = document.getElementById('pass2') as HTMLInputElement;
       const config = {
-        url: 'https://6ed89820-054b-4d52-b92a-2d2cfe0744e1.mock.pstmn.io/auth/sign',
+        url: 'https://6ed89820-054b-4d52-b92a-2d2cfe0744e1.mock.pstmn.io/auth/check',
       };
       const data = {
-        login: login.value,
-        pass: pass.value,
+        login: log.value,
       };
+      if (log.value === '') {
+        alert('Введите логин!');
+        return;
+      }
+      if (pass1.value === '') {
+        alert('Введите пароль!');
+        return;
+      }
+      if (pass1.value !== pass2.value) {
+        alert('Пароли не совпадают!');
+        return;
+      }
       axios.post(config.url, data, { headers: { 'x-mock-match-request-body': true } })
         .then((response) => {
           console.log(response.data.isRequire);
           if (response.data.isRequire) {
-            alert('Успешно!');
+            alert('Логин занят!');
           }
         })
         .catch((error) => {
           console.log(error);
-          alert('Неверный логин или пароль!');
+          alert('Успешно!');
         });
     },
   },
-};
+});
 </script>
 
 <style>
 .form-div {
+  margin-top:100px;
   display: flex;
 }
 .logo_big {
-  width: 20%;
+  width: 40%;
   background: #444;
 }
 .logo {
@@ -159,4 +174,3 @@ export default {
      width: 100%;
   }
 }
-</style>
