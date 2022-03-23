@@ -78,4 +78,17 @@ align-items: center;
 background-color: #282c31 ;
 color: #282c31;
 }
+@media (max-width:768px){
+  .leftbar-div{
+      position: fixed;
+    display:block;
+width: 9%;
+height:100%;
+}
+  .logo{
+ width:30px;
+  height:30px;
+}
+  }
+
 </style>

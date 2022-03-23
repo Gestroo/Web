@@ -87,4 +87,18 @@ margin:auto 3% ;
 .text{
     color: #fff
 }
+@media(max-width:768px){
+.topbar-div{
+justify-content: space-between;
+  display:flex;
+  max-width:91%;
+    width:91%;
+    height:7%;
+    margin-left: 9%;
+}
+.profile-div{
+    display: flex;
+    margin-right: 7%;
+}
+}
 </style>

@@ -43,18 +43,16 @@
     </div>
     <div class='midline flex'>
         <div class ='block-border block-color mid-left'>
-            <div class='jcfx'>
-                <div>
+            <div class='audi-jcfx'>
+                <div class="audi-flex">
                     <p class='header-text'>Audience reach</p>
+                    <p class="subtext-mini date-text">31/01/2020 - 06/02/2020 </p>
                 </div>
-                <div class='jcfx'>
-                        <p class="subtext-mini date-text">31/01/2020 - 06/02/2020 </p>
-                    <div class='flex'>
-                        <img src="../assets/purplecheck.svg" class='check' alt="">
-                        <p class="subtext-mini">Total</p>
-                        <img src="../assets/pinkcheck.svg" class="check" alt="">
-                        <p class="subtext-mini">Followers</p>
-                    </div>
+                <div class='checkboxes flex'>
+                    <img src="../assets/purplecheck.svg" class='check' alt="">
+                    <p class="subtext-mini">Total</p>
+                    <img src="../assets/pinkcheck.svg" class="check" alt="">
+                    <p class="subtext-mini">Followers</p>
                 </div>
             </div>
             <div>
@@ -70,7 +68,7 @@
                     <p class="subdiagram high-percent">86%</p>
                     <p class="subdiagram low-percent">14%</p>
                 </div>
-                <div>
+                <div class="legend">
                     <div class="flex">
                         <img src="../assets/pinkbox.svg" alt="">
                         <p class="legend-text">Desktop</p>
@@ -231,6 +229,14 @@ color: #212427;
     display:flex;
     margin: 0 5%;
 }
+.audi-jcfx{
+    justify-content:space-between;
+    display:flex;
+    margin: 0 5%;
+}
+.audi-flex{
+    display:flex;
+}
 .topblock{
     height: 150px;
 }
@@ -310,5 +316,92 @@ font-size: 18px;
 .subtext{
     color:#979797;
     font-size:20px;
+}
+@media(max-width:768px){
+    .main-div{
+    max-width: 91%;
+    height:93%;
+    margin-left: 9%;
+    padding: 3%;
+}
+.topline{
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+}
+.topblock{
+    width:75%;
+    margin: 3% auto ;
+}
+.midline{
+    width:96%;
+    display:flex;
+    flex-direction: column;
+}
+.mid-left{
+    width:75%;
+    margin: auto;
+}
+.graph{
+    width:100%;
+}
+.mid-right{
+    margin:5% auto;
+    width:75%;
+}
+.purpledia{
+    margin-top:0;
+    margin-left:30px;
+    width:100px;
+}
+.pinkdia{
+    margin-top:5px;
+    margin-left:100px;
+    width: 48px;
+}
+.high-percent{
+    color:#fff;
+    margin-top:50px;
+    margin-left: 50px;
+}
+.low-percent{
+    color:#fff;
+    margin-top:25px;
+    margin-left:115px;
+    font-size: 13px;
+}
+.diagram{
+    position: relative;
+    width: 45%;
+}
+.botline{
+    display:flex;
+    flex-direction:column;
+    margin-top:3%;
+    width:96%;
+}
+.bot-left{
+    width: 75%;
+    margin: 0 auto;
+}
+.bot-right{
+    width:75%;
+    margin: 5% auto;
+}
+.audi-jcfx{
+    display:flex;
+    flex-direction:column;
+    margin: 0 5%;
+}
+.audi-flex{
+display:flex;
+justify-content: space-between;
+}
+.checkboxes{
+margin-bottom:3%;
+}
+.date-text{
+    margin:auto 0;
+}
 }
 </style>
