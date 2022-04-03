@@ -1,13 +1,13 @@
 <template>
   <div>
     <Fio lastName="Широков" firstName="Дмитрий" middleName="Романович"></Fio>
-    <Vyatsu :results="results"></Vyatsu>
     <div class="buttons">
       <button v-on:click="toggleStyleLogin" class="login-btn">Войти</button>
       <button v-on:click="toggleStyleRegister" class="register-btn">Зарегестрироваться</button>
     </div>
 <Login class="login"> </Login>
 <Register class="register"></Register>
+<Table></Table>
   </div>
 </template>
 
@@ -15,9 +15,9 @@
 import Vue from 'vue';
 import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
-import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
 import Login from '../../authorisation/src/Login.vue';
 import Register from '../../registration/src/components/Register.vue';
+import Table from '../../table/src/components/table.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -25,7 +25,7 @@ export default Vue.extend({
   name: 'App',
   components: {
     Fio,
-    Vyatsu,
+    Table,
     Login,
     Register,
   },
