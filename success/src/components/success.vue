@@ -1,5 +1,7 @@
 <template>
-  <div>{{ lastName }} {{ firstName }} {{ middleName }}</div>
+  <div class="SuccessBlock">
+    <h1>Успешно!</h1>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,5 +20,8 @@ export default Vue.extend({
 <style scoped>
 div {
   text-align: center;
+}
+.SuccessBlock{
+display: none;
 }
 </style>
