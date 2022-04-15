@@ -1,23 +1,27 @@
 <template>
-  <div>
+<div>
+  <div id="main">
     <Fio lastName="Широков" firstName="Дмитрий" middleName="Романович"></Fio>
-    <Vyatsu :results="results"></Vyatsu>
-    <div class="buttons">
+    <div class="buttons bg">
       <button v-on:click="toggleStyleLogin" class="login-btn">Войти</button>
       <button v-on:click="toggleStyleRegister" class="register-btn">Зарегестрироваться</button>
     </div>
-<Login class="login"> </Login>
-<Register class="register"></Register>
+<Login class="login bg"> </Login>
+<Register class="register bg"></Register>
   </div>
+<StartButton class ="btnStart">
+
+</StartButton>
+</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
-import Vyatsu from '../../vyatsu/src/components/Vyatsu.vue';
 import Login from '../../authorisation/src/Login.vue';
 import Register from '../../registration/src/components/Register.vue';
+import StartButton from '../../button/src/components/startButton.vue';
 
 const url = 'http://localhost:8080/admission/';
 
@@ -25,9 +29,9 @@ export default Vue.extend({
   name: 'App',
   components: {
     Fio,
-    Vyatsu,
     Login,
     Register,
+    StartButton,
   },
   data() {
     return { results: [] };
@@ -59,6 +63,9 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+#main{
+    pointer-events: none;
+  }
 .buttons {
 display: flex;
 justify-content: center;
@@ -80,6 +87,16 @@ color: white;
 .register {
 display: none;
 }
+.btnStart
+  {
+    position: fixed;
+    z-index: 100;
+    margin-top: -26%;
+    margin-left: 25%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    backdrop-filter: blur(4rem);
+  }
 @media (max-width:600px){
   .buttons {
   display: block;
