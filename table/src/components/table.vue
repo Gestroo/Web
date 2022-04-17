@@ -42,7 +42,7 @@ export default {
   methods: {
     GetList() {
       const config = {
-        url: 'https://665505a7-6875-4191-9daa-264c707a6053.mock.pstmn.io/',
+        url: 'api/getstudent',
       };
       axios.get(config.url)
         .then((response) => {
@@ -56,7 +56,7 @@ export default {
     },
     FindById(i) {
       const config = {
-        url: 'https://665505a7-6875-4191-9daa-264c707a6053.mock.pstmn.io/',
+        url: 'api/getstudent?id=',
       };
       axios.get(config.url + i)
         .then((response) => {

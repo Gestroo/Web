@@ -13,13 +13,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import axios from 'axios';
 import Fio from '../../fio/src/components/Fio.vue';
 import Login from '../../authorisation/src/Login.vue';
 import Register from '../../registration/src/components/Register.vue';
 import Table from '../../table/src/components/table.vue';
-
-const url = 'http://localhost:8080/admission/';
 
 export default Vue.extend({
   name: 'App',
@@ -28,18 +25,6 @@ export default Vue.extend({
     Table,
     Login,
     Register,
-  },
-  data() {
-    return { results: [] };
-  },
-  mounted() {
-    axios
-      .get(url)
-      .then((response: any) => {
-        console.log(response);
-        this.results = response.data;
-      })
-      .catch((error: any) => console.log(error));
   },
   methods: {
     toggleStyleLogin() {

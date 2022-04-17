@@ -44,7 +44,7 @@ export default ({
       const pass1 :HTMLInputElement = document.getElementById('pass1') as HTMLInputElement;
       const pass2 :HTMLInputElement = document.getElementById('pass2') as HTMLInputElement;
       const config = {
-        url: 'https://6ed89820-054b-4d52-b92a-2d2cfe0744e1.mock.pstmn.io/auth/check',
+        url: 'api/auth/check',
       };
       const data = {
         login: log.value,
@@ -61,16 +61,15 @@ export default ({
         alert('Пароли не совпадают!');
         return;
       }
-      axios.post(config.url, data, { headers: { 'x-mock-match-request-body': true } })
+      axios.post(config.url, data)
         .then((response) => {
-          console.log(response.data.isRequire);
-          if (response.data.isRequire) {
+          console.log(response.data.IsValid);
+          if (!response.data.IsValid) {
             alert('Логин занят!');
-          }
+          } else { alert('Успешно!'); }
         })
         .catch((error) => {
           console.log(error);
-          alert('Успешно!');
         });
     },
   },

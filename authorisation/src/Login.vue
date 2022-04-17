@@ -41,22 +41,21 @@ export default {
       const pass :HTMLInputElement = document.getElementById('pass') as HTMLInputElement;
 
       const config = {
-        url: 'https://6ed89820-054b-4d52-b92a-2d2cfe0744e1.mock.pstmn.io/auth/sign',
+        url: 'api/auth/login',
       };
       const data = {
         login: login.value,
         pass: pass.value,
       };
-      axios.post(config.url, data, { headers: { 'x-mock-match-request-body': true } })
+      axios.post(config.url, data)
         .then((response) => {
-          console.log(response.data.isRequire);
-          if (response.data.isRequire) {
+          console.log(response.data.completed);
+          if (response.data.completed) {
             alert('Успешно!');
-          }
+          } else { alert('Неверный логин или пароль!'); }
         })
         .catch((error) => {
           console.log(error);
-          alert('Неверный логин или пароль!');
         });
     },
   },
